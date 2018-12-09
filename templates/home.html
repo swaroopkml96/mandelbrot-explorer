@@ -1,0 +1,30 @@
+{% extends "bootstrap/base.html" %}
+{% block title %} Mandelbrot explorer {% endblock title %}
+
+{% block head %}
+{{ super() }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.js"></script>
+<script src={{ url_for('send_static', path='sketch.js') }}></script>
+{% endblock head %}
+
+
+{% block content %}
+<div class="container">
+	<h1 class="text-center"> Mandelbrot explorer </h1>
+	<blockquote class="blockquote-reverse small text-muted">
+	<p class="text-center">
+		There is nothing more to this than a simple iterative formula. … Its astounding complication was completely out of proportion with what I was expecting. Here is the curious thing: the first night I saw the set, it was just wild. The second night, I became used to it. After a few nights, I became familiar with it. It was as if somehow I had seen it before. Of course I hadn't. No one had seen it. No one had described it. The fact that a certain aspect of its mathematical nature remains mysterious, despite hundreds of brilliant people working on it, is the icing on the cake to me.
+	</p>
+	<footer> Valerie Jamieson, A Fractal Life (New Scientist, November 2004) </footer>
+	</blockquote>
+
+	<div id="canvasHolder" align="center">
+	</div>
+	<div id="fields" align="center">
+	</div>
+
+	
+</div>
+
+{% endblock content %}
