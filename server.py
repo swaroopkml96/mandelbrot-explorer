@@ -2,12 +2,11 @@ from flask import Flask, render_template, url_for, request, send_from_directory
 from flask_bootstrap import Bootstrap
 from mandelbrot import Mandelbrot
 from flask import jsonify
-
-
+import time
 import numpy as np
 
 
-m = Mandelbrot(2, 50)
+m = Mandelbrot(4, 100)
 
 
 app = Flask(__name__)
@@ -32,7 +31,9 @@ def mandelbrotAPI():
         img_width = int(json['img_width'])
         img_height = int(json['img_height'])
         print('Generating image')
-        img = m.genImage(limits, img_width, img_height)
+        t = time.time()
+        img = m.genImageFaster(limits, img_width, img_height)
+        print(f'Took {time.time() - t} seconds')
 
         print('Adding alpha')
         alpha = np.ones((img_height, img_width))

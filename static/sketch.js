@@ -17,8 +17,8 @@ let limits = [
 // let xmax = 2;
 // let ymax = 1.5;
 
-let img_width = 400;
-let img_height = 300;
+let img_width = 600;
+let img_height = 450;
 
 function success(response) {
 	img.loadPixels();
